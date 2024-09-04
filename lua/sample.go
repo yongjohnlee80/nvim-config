@@ -11,7 +11,7 @@ func fib(n int) int {
 
 func main() {
 	x := fib(5)
-	y := fib(8)
+	y := fib(7)
 	fmt.Println("X: ", x)
 	fmt.Println("Y: ", y)
 }
