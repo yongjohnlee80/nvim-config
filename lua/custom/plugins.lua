@@ -55,6 +55,7 @@ local plugins = {
         "prettier",
         "typescript-language-server",
         "gopls",
+        "lua-language-server",
       }
     }
   },
