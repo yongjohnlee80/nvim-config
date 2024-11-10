@@ -51,6 +51,7 @@ return {
 				"delve",
 				"codelldb",
 				"rust-analyzer",
+				"js-debug-adapter",
 			},
 		})
 	end,
