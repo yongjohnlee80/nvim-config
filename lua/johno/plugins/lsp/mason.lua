@@ -47,6 +47,7 @@ return {
 				"gofumpt",
 				"goimports-reviser",
 				"golines",
+				"gopls",
 				"delve",
 				"codelldb",
 			},
