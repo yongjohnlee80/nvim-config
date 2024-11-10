@@ -2,6 +2,7 @@ return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
+		"williamboman/mason.nvim",
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		{ "folke/neodev.nvim", opts = {} },
@@ -16,7 +17,6 @@ return {
 
 		-- import cmp-nvim-lsp plugin
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
-		local on_attach = mason_lspconfig.on_attach
 
 		local keymap = vim.keymap -- for conciseness
 
@@ -89,7 +89,6 @@ return {
 			end,
 			["gopls"] = function()
 				lspconfig["gopls"].setup({
-					on_attach = on_attach,
 					capabilities = capabilities,
 					cmd = { "gopls" },
 					filetypes = { "go", "gomod", "gowork", "gotmpl" },
