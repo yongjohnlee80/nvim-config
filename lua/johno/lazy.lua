@@ -26,13 +26,15 @@ require("lazy").setup({
 	spec = {
 		-- import your plugins
 		{ import = "johno.plugins" },
-		{ import = "johno.plugins.lsp"}
+		{ import = "johno.plugins.lsp" },
+		{ import = "johno.plugins.debugger" },
+		{ import = "johno.plugins.languages" },
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
 	install = { colorscheme = { "habamax" } },
 	-- automatically check for plugin updates
-	checker = { 
+	checker = {
 		enabled = true,
 		notify = false,
 	},

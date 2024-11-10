@@ -44,6 +44,11 @@ return {
 				"black", -- python formatter
 				"pylint",
 				"eslint_d",
+				"gofumpt",
+				"goimports-reviser",
+				"golines",
+				"delve",
+				"codelldb",
 			},
 		})
 	end,
