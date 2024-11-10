@@ -1,3 +1,11 @@
+local function organize_imports()
+	local params = {
+		command = "_typescript.organize_imports",
+		arguments = { vim.api.nvim_buf_get_name(0) },
+	}
+	vim.lsp.buf.execute_command(params)
+end
+
 return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
@@ -82,9 +90,28 @@ return {
 
 		mason_lspconfig.setup_handlers({
 			-- default handler for installed servers
-			function(server_name)
-				lspconfig[server_name].setup({
+			-- IMPORTANT!! when working with Rust, lspconfig.rust-analyzer cannot be initialized.
+			-- rustacean handles lsp; thus, lspconfig.rust-analyzer should not be setup.
+			--
+			-- function(server_name)
+			-- 	lspconfig[server_name].setup({
+			-- 		capabilities = capabilities,
+			-- 	})
+			-- end,
+			["ts_ls"] = function()
+				lspconfig["ts_ls"].setup({
 					capabilities = capabilities,
+					init_options = {
+						preferences = {
+							disableSuggestions = true,
+						},
+					},
+					commands = {
+						OrganizeImports = {
+							organize_imports,
+							description = "Organize Imports",
+						},
+					},
 				})
 			end,
 			["gopls"] = function()
@@ -102,20 +129,6 @@ return {
 							},
 						},
 					},
-				})
-			end,
-			["rust-analyzer"] = function()
-				lspconfig["rust-analyzer"].setup({
-					capabilities = capabilities,
-					filetypes = { "rust" },
-					root_dir = util.root_pattern "Cargo.toml",
-					settings = {
-						["rust-analyzer"] = {
-							cargo = {
-								allFeatures = true,
-							}
-						}
-					}
 				})
 			end,
 			["emmet_ls"] = function()

@@ -2,6 +2,7 @@ return {
 	{
 		"mrcjkb/rustaceanvim",
 		ft = "rust",
+		dependencies = "neovim/nvim-lspconfig",
 		version = "^5", -- Recommended
 		lazy = false, -- This plugin is already lazy
 		config = function()
