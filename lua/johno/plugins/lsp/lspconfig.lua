@@ -104,6 +104,20 @@ return {
 					},
 				})
 			end,
+			["rust-analyzer"] = function()
+				lspconfig["rust-analyzer"].setup({
+					capabilities = capabilities,
+					filetypes = { "rust" },
+					root_dir = util.root_pattern "Cargo.toml",
+					settings = {
+						["rust-analyzer"] = {
+							cargo = {
+								allFeatures = true,
+							}
+						}
+					}
+				})
+			end,
 			["emmet_ls"] = function()
 				-- configure emmet language server
 				lspconfig["emmet_ls"].setup({
