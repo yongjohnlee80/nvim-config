@@ -30,3 +30,8 @@ keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" 
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+
+keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "move line up (n)" })
+keymap.set("n", "<A-k>", ":m .-2<CR>==", { desc = "move line down (n)" })
+keymap.set("v", "<A-j>", "::m '>+1<CR>gv=g", { desc = "move line up (n)" })
+keymap.set("v", "<A-k>", "::m '<-2<CR>gv=g", { desc = "move line down (n)" })

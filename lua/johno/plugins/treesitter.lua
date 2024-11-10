@@ -13,6 +13,7 @@ return {
 		treesitter.setup({ -- enable syntax highlighting
 			highlight = {
 				enable = true,
+				use_languagetree = true,
 			},
 			-- enable indentation
 			indent = { enable = true },
@@ -39,6 +40,13 @@ return {
 				"query",
 				"vimdoc",
 				"c",
+				"go",
+				"gomod",
+				"gotmpl",
+				"gowork",
+				"mermaid",
+				"squirrel",
+				"regex",
 			},
 			incremental_selection = {
 				enable = true,
