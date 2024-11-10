@@ -50,6 +50,7 @@ return {
 				"gopls",
 				"delve",
 				"codelldb",
+				"rust-analyzer",
 			},
 		})
 	end,
