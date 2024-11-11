@@ -33,11 +33,13 @@ return {
 				"lua_ls",
 				"emmet_ls",
 				"pyright",
+				"clangd",
 			},
 		})
 
 		mason_tool_installer.setup({
 			ensure_installed = {
+				"clang-format",
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
 				"isort", -- python formatter
