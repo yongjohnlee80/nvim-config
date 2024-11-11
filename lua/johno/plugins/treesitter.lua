@@ -40,6 +40,7 @@ return {
 				"query",
 				"vimdoc",
 				"c",
+				"cpp",
 				"go",
 				"gomod",
 				"gotmpl",

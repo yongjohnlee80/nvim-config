@@ -13,7 +13,7 @@ return {
 		"williamboman/mason.nvim",
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
-		{ "folke/neodev.nvim", opts = {} },
+		{ "folke/neodev.nvim",                   opts = {} },
 	},
 	config = function()
 		-- import lspconfig plugin
@@ -98,6 +98,11 @@ return {
 			-- 		capabilities = capabilities,
 			-- 	})
 			-- end,
+			["clangd"] = function()
+				lspconfig["clangd"].setup({
+					capabilities = capabilities,
+				})
+			end,
 			["ts_ls"] = function()
 				lspconfig["ts_ls"].setup({
 					capabilities = capabilities,
@@ -127,6 +132,7 @@ return {
 							analyses = {
 								unusedparams = true,
 							},
+							buildFlags = { "-tags=test" },
 						},
 					},
 				})
