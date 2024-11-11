@@ -2,6 +2,29 @@ return {
 	{
 		"rcarriga/nvim-dap-ui",
 		event = "VeryLazy",
+		keys = {
+			{
+				"<leader>du",
+				function()
+					require("dapui").toggle()
+				end,
+				desc = "Toggle Debug Panels",
+			},
+			{
+				"<leader>dC",
+				function()
+					require("dapui").close()
+				end,
+				desc = "Close Debug Panels",
+			},
+			{
+				"<leader>dO",
+				function()
+					require("dapui").open()
+				end,
+				desc = "Open Debug Panels",
+			},
+		},
 		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
 		config = function()
 			local dap = require("dap")
@@ -33,12 +56,12 @@ return {
 		"mfussenegger/nvim-dap",
 		keys = {
 			{ "<leader>db", "<cmd> DapToggleBreakpoint <CR>", desc = "Add breakpoint at line" },
-			{ "<C-F8>", "<cmd> DapToggleBreakpoint <CR>", desc = "Add breakpoint at line" },
-			{ "<F8>", "<cmd> DapStepOver <CR>", desc = "Step Over" },
-			{ "<F7>", "<cmd> DapStepInto <CR>", desc = "Step Into" },
-			{ "<S-F8>", "<cmd> DapStepOut <CR>", desc = "Step Out" },
-			{ "<leader>dr", "<cmd> DapContinue <CR>", desc = "Run or Continue the debugging" },
-			{ "<F9>", "<cmd> DapContinue <CR>", desc = "Run or Continue the debugging" },
+			{ "<C-F8>",     "<cmd> DapToggleBreakpoint <CR>", desc = "Add breakpoint at line" },
+			{ "<F8>",       "<cmd> DapStepOver <CR>",         desc = "Step Over" },
+			{ "<F7>",       "<cmd> DapStepInto <CR>",         desc = "Step Into" },
+			{ "<S-F8>",     "<cmd> DapStepOut <CR>",          desc = "Step Out" },
+			{ "<leader>dr", "<cmd> DapContinue <CR>",         desc = "Run or Continue the debugging" },
+			{ "<F9>",       "<cmd> DapContinue <CR>",         desc = "Run or Continue the debugging" },
 		},
 		config = function(_, _)
 			require("johno.plugins.configs.dap")
