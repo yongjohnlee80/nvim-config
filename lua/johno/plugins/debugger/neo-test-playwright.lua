@@ -1,0 +1,22 @@
+return {
+	-- {
+	-- 	"nvim-neotest/neotest",
+	-- 	dependencies = {
+	-- 		{
+	-- 			"thenbe/neotest-playwright",
+	-- 			dependencies = {
+	-- 				"nvim-telescope/telescope.nvim",
+	-- 			},
+	-- 		},
+	-- 	},
+	-- 	opts = function(_, opts)
+	-- 		table.insert(
+	-- 			opts.adapters,
+	-- 			require("neotest-playwright")({
+	-- 				persist_project_selection = false,
+	-- 				enable_dynamic_test_discovery = false,
+	-- 			})
+	-- 		)
+	-- 	end,
+	-- },
+}
