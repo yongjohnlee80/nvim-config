@@ -8,6 +8,12 @@ return {
 			"antoinemadec/FixCursorHold.nvim",
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-neotest/neotest-jest",
+			{
+				"fredrikaverpil/neotest-golang",
+				dependencies = {
+					"leoluz/nvim-dap-go",
+				},
+			},
 		},
 		opts = {
 			-- Can be a list of adapters like what neotest expects,
@@ -28,6 +34,19 @@ return {
 				open = function()
 					require("trouble").open({ mode = "quickfix", focus = false })
 				end,
+			},
+			discovery = {
+				-- Drastically improve performance in ginormous projects by
+				-- only AST-parsing the currently opened buffer.
+				enabled = false,
+				-- Number of workers to parse files concurrently.
+				-- A value of 0 automatically assigns number based on CPU.
+				-- Set to 1 if experiencing lag.
+				concurrent = 1,
+			},
+			running = {
+				-- Run tests concurrently when an adapter provides multiple commands to run.
+				concurrent = true,
 			},
 		},
 		config = function(_, opts)
@@ -86,6 +105,7 @@ return {
 			{ "<leader>TO", function() require("neotest").output_panel.toggle() end,                            desc = "Toggle Output Panel (Neotest)" },
 			{ "<leader>TS", function() require("neotest").run.stop() end,                                       desc = "Stop (Neotest)" },
 			{ "<leader>Tw", function() require("neotest").watch.toggle(vim.fn.expand("%")) end,                 desc = "Toggle Watch (Neotest)" },
+			{ "<leader>Td", function() require("neotest").run.run({ suite = false, strategy = "dap" }) end,     desc = "Debug nearest test" },
 		},
 	},
 }

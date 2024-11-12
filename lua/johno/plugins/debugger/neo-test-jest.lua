@@ -5,10 +5,6 @@ return {
 			"nvim-neotest/neotest-jest",
 		},
 		opts = function(_, opts)
-			if opts.adapters == nil then
-				opts.adapters = {}
-			end
-
 			table.insert(
 				opts.adapters,
 				require("neotest-jest")({
