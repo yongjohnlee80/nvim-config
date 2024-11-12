@@ -5,7 +5,7 @@ return {
 		dependencies = {
 			"nvimtools/none-ls-extras.nvim",
 		},
-		ft = { "go", "cpp", "c", "rust", "python", "lua", "tsx", "javascript", "typescript" },
+		ft = { "go", "cpp", "c", "rust", "python", "lua", "js", "ts", "javascript", "typescript" },
 		config = function()
 			require("johno.plugins.configs.none-ls")
 		end,
